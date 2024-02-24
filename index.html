@@ -60,7 +60,7 @@
 <body>
     <div id="game-board"></div>
     <div class="controls">
-        <div class="control-button" onclick="changeDirection('up')" style="position: absolute; translate: 0 -150%;">W</div>
+        <div class="control-button" onclick="changeDirection('up')" style="position: absolute; transform: translate(0, -150%);">W</div>
         <div class="control-button" onclick="changeDirection('left')">A</div>
         <div class="control-button" onclick="changeDirection('down')">S</div>
         <div class="control-button" onclick="changeDirection('right')">D</div>
@@ -100,11 +100,10 @@
             foodElement.style.top = `${food.y}px`;
             board.appendChild(foodElement);
         }
-
+        
         function update() {
             // Move the snake
             const head = { ...snake[0] };
-
             switch (direction) {
                 case 'up':
                     head.y -= 20;
@@ -154,12 +153,37 @@
         }
 
         function changeDirection(newDirection) {
-            direction = newDirection;
-        }
+    // Check if the new direction is opposite to the current direction
+    if (
+        (newDirection === 'up' && direction !== 'down') ||
+        (newDirection === 'down' && direction !== 'up') ||
+        (newDirection === 'left' && direction !== 'right') ||
+        (newDirection === 'right' && direction !== 'left')
+    ) {
+        direction = newDirection;
+    }
+}
+
+
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case 'ArrowUp':
+                    changeDirection('up');
+                    break;
+                case 'ArrowDown':
+                    changeDirection('down');
+                    break;
+                case 'ArrowLeft':
+                    changeDirection('left');
+                    break;
+                case 'ArrowRight':
+                    changeDirection('right');
+                    break;
+            }
+        });
 
         // Start the game loop
         setInterval(update, 200); // Adjust the interval for the desired speed
     </script>
 </body>
 </html>
-
