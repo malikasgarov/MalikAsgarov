@@ -1,6 +1,6 @@
 
         body {
-            background-color: #ccc;
+            background-color: rgb(85, 221, 91);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -13,28 +13,29 @@
         #game-board {
             width: 300px;
             height: 300px;
-            border: 2px solid black;
+            border: 3px solid black;
             position: relative;
-            margin-top: 20px; /* Add margin-top for some spacing */
+            margin-top: 20px;
+            background-color: whitesmoke;
         }
 
         .snake {
-            width: 20px;
-            height: 20px;
-            background-color: green;
+            width: 13px;
+            height: 13px;
+            background-color: rgb(244, 126, 88);
             position: absolute;
         }
 
         .food {
-            width: 20px;
-            height: 20px;
+            width: 13px;
+            height: 13px;
             background-color: red;
             position: absolute;
             border-radius: 50%;
         }
 
         .controls {
-            margin-top: 60px;
+            margin-top: 80px;
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -42,8 +43,8 @@
         }
 
         .control-button {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background-color: black;
             color: white;

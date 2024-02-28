@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Snake Game</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
     <div id="game-board"></div>
-    
+
     <div class="controls">
-        <div class="control-button" onclick="changeDirection('up')" style="position:absolute; translate: 0 -140%;">W</div>
+        <div class="control-button" onclick="changeDirection('up')" style="position:absolute; translate: 0 -140%;">W
+        </div>
         <div class="control-button" onclick="changeDirection('left')">A</div>
         <div class="control-button" onclick="changeDirection('down')">S</div>
         <div class="control-button" onclick="changeDirection('right')">D</div>
     </div>
 
     <script>
-         const board = document.getElementById('game-board');
+        const board = document.getElementById('game-board');
         let snake = [{ x: 0, y: 0 }];
         let direction = 'right';
         let food = generateFood();
 
         function generateFood() {
-    let foodPosition;
-    do {
-        const x = Math.floor(Math.random() * 15) * 20;
-        const y = Math.floor(Math.random() * 15) * 20;
-        const overlap = snake.some(segment => segment.x === x && segment.y === y);
-        if (!overlap) {
-            foodPosition = { x, y };
+            let foodPosition;
+            do {
+                const x = Math.floor(Math.random() * 15) * 13;
+                const y = Math.floor(Math.random() * 15) * 13;
+                const overlap = snake.some(segment => segment.x === x && segment.y === y);
+                if (!overlap) {
+                    foodPosition = { x, y };
+                }
+            } while (!foodPosition);
+            return foodPosition;
         }
-    } while (!foodPosition);
-    return foodPosition;
-}
 
 
         function draw() {
@@ -52,21 +55,21 @@
             foodElement.style.top = `${food.y}px`;
             board.appendChild(foodElement);
         }
-        
+
         function update() {
             const head = { ...snake[0] };
             switch (direction) {
                 case 'up':
-                    head.y -= 20;
+                    head.y -= 13;
                     break;
                 case 'down':
-                    head.y += 20;
+                    head.y += 13;
                     break;
                 case 'left':
-                    head.x -= 20;
+                    head.x -= 13;
                     break;
                 case 'right':
-                    head.x += 20;
+                    head.x += 13;
                     break;
             }
 
@@ -76,10 +79,11 @@
             } else {
                 snake.pop();
             }
-            if (head.x < 0 || head.x >= 300 || head.y < 0 || head.y >= 300) {
+            if (head.x < 0 || head.x >= 291 || head.y < 0 || head.y >= 291) {
                 alert('Game Over!');
                 resetGame();
             }
+
 
             for (let i = 1; i < snake.length; i++) {
                 if (head.x === snake[i].x && head.y === snake[i].y) {
@@ -98,15 +102,15 @@
         }
 
         function changeDirection(newDirection) {
-    if (
-        (newDirection === 'up' && direction !== 'down') ||
-        (newDirection === 'down' && direction !== 'up') ||
-        (newDirection === 'left' && direction !== 'right') ||
-        (newDirection === 'right' && direction !== 'left')
-    ) {
-        direction = newDirection;
-    }
-}
+            if (
+                (newDirection === 'up' && direction !== 'down') ||
+                (newDirection === 'down' && direction !== 'up') ||
+                (newDirection === 'left' && direction !== 'right') ||
+                (newDirection === 'right' && direction !== 'left')
+            ) {
+                direction = newDirection;
+            }
+        }
 
 
         document.addEventListener('keydown', function (event) {
@@ -126,7 +130,8 @@
             }
         });
 
-        setInterval(update, 200);
+        setInterval(update, 125);
     </script>
 </body>
+
 </html>
