@@ -1,0 +1,55 @@
+
+        body {
+            background-color: #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        #game-board {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            position: relative;
+            margin-top: 20px; /* Add margin-top for some spacing */
+        }
+
+        .snake {
+            width: 20px;
+            height: 20px;
+            background-color: green;
+            position: absolute;
+        }
+
+        .food {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .controls {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* margin-top: 20px; */
+        }
+
+        .control-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: black;
+            color: white;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }

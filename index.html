@@ -4,72 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Snake Game</title>
-    <style>
-        body {
-            background-color: #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-        }
-
-        #game-board {
-            width: 300px;
-            height: 300px;
-            border: 2px solid black;
-            position: relative;
-        }
-
-        .snake {
-            width: 20px;
-            height: 20px;
-            background-color: green;
-            position: absolute;
-        }
-
-        .food {
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            position: absolute;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .control-button {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: black;
-            color: white;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div id="game-board"></div>
+    
     <div class="controls">
-        <div class="control-button" onclick="changeDirection('up')" style="position: absolute; transform: translate(0, -150%);">W</div>
+        <div class="control-button" onclick="changeDirection('up')" style="position:absolute; translate: 0 -140%;">W</div>
         <div class="control-button" onclick="changeDirection('left')">A</div>
         <div class="control-button" onclick="changeDirection('down')">S</div>
         <div class="control-button" onclick="changeDirection('right')">D</div>
     </div>
 
     <script>
-        // JavaScript code for the game
+         // JavaScript code for the game
 
-        const board = document.getElementById('game-board');
+         const board = document.getElementById('game-board');
         let snake = [{ x: 0, y: 0 }]; // Initial snake position
         let direction = 'right';
         let food = generateFood();
@@ -131,14 +81,14 @@
 
             // Check for collision with the walls
             if (head.x < 0 || head.x >= 300 || head.y < 0 || head.y >= 300) {
-                alert('Game Over!');
+                // alert('Game Over!');
                 resetGame();
             }
 
             // Check for collision with itself
             for (let i = 1; i < snake.length; i++) {
                 if (head.x === snake[i].x && head.y === snake[i].y) {
-                    alert('Game Over!');
+                    // alert('Game Over!');
                     resetGame();
                 }
             }
@@ -183,7 +133,7 @@
         });
 
         // Start the game loop
-        setInterval(update, 200); // Adjust the interval for the desired speed
+        setInterval(update, 200);
     </script>
 </body>
 </html>
