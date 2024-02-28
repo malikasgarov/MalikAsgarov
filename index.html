@@ -91,7 +91,7 @@
                     resetGame();
                 }
             }
-
+            canChangeDirection = true;
             draw();
         }
 
@@ -100,15 +100,19 @@
             direction = 'right';
             food = generateFood();
         }
+        let canChangeDirection = true;
 
         function changeDirection(newDirection) {
-            if (
-                (newDirection === 'up' && direction !== 'down') ||
-                (newDirection === 'down' && direction !== 'up') ||
-                (newDirection === 'left' && direction !== 'right') ||
-                (newDirection === 'right' && direction !== 'left')
-            ) {
-                direction = newDirection;
+            if (canChangeDirection) {
+                if (
+                    (newDirection === 'up' && direction !== 'down') ||
+                    (newDirection === 'down' && direction !== 'up') ||
+                    (newDirection === 'left' && direction !== 'right') ||
+                    (newDirection === 'right' && direction !== 'left')
+                ) {
+                    direction = newDirection;
+                    canChangeDirection = false; // Disable direction change until the next update
+                }
             }
         }
 
