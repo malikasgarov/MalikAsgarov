@@ -81,14 +81,14 @@
 
             // Check for collision with the walls
             if (head.x < 0 || head.x >= 300 || head.y < 0 || head.y >= 300) {
-                // alert('Game Over!');
+                alert('Game Over!');
                 resetGame();
             }
 
             // Check for collision with itself
             for (let i = 1; i < snake.length; i++) {
                 if (head.x === snake[i].x && head.y === snake[i].y) {
-                    // alert('Game Over!');
+                    alert('Game Over!');
                     resetGame();
                 }
             }
