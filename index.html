@@ -111,7 +111,7 @@
                     (newDirection === 'right' && direction !== 'left')
                 ) {
                     direction = newDirection;
-                    canChangeDirection = false; // Disable direction change until the next update
+                    canChangeDirection = false;
                 }
             }
         }
@@ -129,6 +129,18 @@
                     changeDirection('left');
                     break;
                 case 'ArrowRight':
+                    changeDirection('right');
+                    break;
+                case "w":
+                    changeDirection('up');
+                    break;
+                case "s":
+                    changeDirection('down');
+                    break;
+                case "a":
+                    changeDirection('left');
+                    break;
+                case "d":
                     changeDirection('right');
                     break;
             }
