@@ -70,13 +70,13 @@ function update() {
         snake.pop();
     }
     if (head.x < 0 || head.x >= 291 || head.y < 0 || head.y >= 291) {
-        // alert('Game Over!');
+        alert('Game Over!');
         resetGame();
     }
 
     for (let i = 1; i < snake.length; i++) {
         if (head.x === snake[i].x && head.y === snake[i].y) {
-            // alert('Game Over!');
+            alert('Game Over!');
             resetGame();
         }
     }
