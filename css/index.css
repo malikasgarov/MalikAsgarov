@@ -5,7 +5,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: calc(100vh - 20px);
             margin: 0;
             position: relative;
         }
@@ -17,6 +17,7 @@
             position: relative;
             margin-top: 20px;
             background-color: whitesmoke;
+            background-image: url(../images/snake\ board\ img.jpg);
         }
 
         .snake {
@@ -27,12 +28,14 @@
         }
 
         .food {
-            width: 13px;
-            height: 13px;
-            background-color: red;
+            width: 16px;
+            height: 16px;
             position: absolute;
-            border-radius: 50%;
+            /* border-radius: 50%; */
+            background-image: url(../images/indir.png);
+            background-size: cover; /* Adjust to your needs */
         }
+        
 
         .controls {
             margin-top: 100px;
