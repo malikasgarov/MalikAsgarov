@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
-
 <body>
     <div id="game-board"></div>
-
+    <br>
+    <div class="control-button" onclick="changeDirection('up')">W</div>
     <div class="controls">
-        <div class="control-button" onclick="changeDirection('up')" style="position:absolute; translate: 0 -120%;">W
-        </div>
         <div class="control-button" onclick="changeDirection('left')">A</div>
         <div class="control-button" onclick="changeDirection('down')">S</div>
         <div class="control-button" onclick="changeDirection('right')">D</div>
         <!-- <h1><a href="index1.html" style="position: absolute;">2 Button</a></h1> -->
     </div>
-    <script src="js/serverfirebase.js"></script>
     <script src="js/index.js"></script>
 </body>
-
 </html>
